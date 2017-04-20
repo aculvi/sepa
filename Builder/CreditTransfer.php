@@ -65,7 +65,10 @@ class CreditTransfer extends Base {
             $controlSum = $this->createElement('CtrlSum', $paymentInformation->getControlSum());
             $this->payment->appendChild($controlSum);
         }
-
+		if($paymentInformation->getCtgyPurp() !== false){
+			$ctgyPurp = $this->createElement('CtgyPurp',$paymentInformation->getCtgyPurp());
+			$this->payment->appendChild($ctgyPurp);
+		}
         $requestedExecutionDate = $this->createElement('ReqdExctnDt', $paymentInformation->getRequestedExecutionDate());
         $this->payment->appendChild($requestedExecutionDate);
 
@@ -116,10 +119,7 @@ class CreditTransfer extends Base {
             $creditorAccount->appendChild($id);
             $creditTransferTransactionInformation->appendChild($creditorAccount);
 
-            if($payment->getCtgyPurp() !== false){
-            	$ctgyPurp = $this->createElement('CtgyPurp',$payment->getCtgyPurp());
-				$creditTransferTransactionInformation->appendChild($ctgyPurp);
-			}
+
             $remittanceInformation = $this->remittence($payment->getRemittanceInformation());
             $creditTransferTransactionInformation->appendChild($remittanceInformation);
             $this->payment->appendChild($creditTransferTransactionInformation);
