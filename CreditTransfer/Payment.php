@@ -111,12 +111,7 @@ class Payment {
         return $this->remittanceInformation;
     }
 
-	/**
-	 * @return string
-	 */
-	public function getCtgyPurp() {
-		return $this->ctgyPurp;
-	}
+
     /**
      * 
      * @param string $amount
@@ -183,8 +178,4 @@ class Payment {
         return $this;
     }
 
-	public function setCtgyPurp($ctgyPurp) {
-		$this->ctgyPurp = $ctgyPurp;
-		return $this;
-	}
 }

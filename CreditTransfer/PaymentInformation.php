@@ -64,6 +64,12 @@ class PaymentInformation {
      */
     protected $payments = array();
 
+	/**
+	 *
+	 * @var string
+	 */
+	protected $ctgyPurp = false;
+
     /**
      * @return float
      */
@@ -134,6 +140,13 @@ class PaymentInformation {
         return $this->requestedExecutionDate;
     }
 
+	/**
+	 * @return string
+	 */
+	public function getCtgyPurp() {
+		return $this->ctgyPurp;
+	}
+
     /**
      * @param float $controlSum
      */
@@ -190,6 +203,15 @@ class PaymentInformation {
         return $this;
     }
 
+	/**
+	 *
+	 * @param string $ctgyPurp
+	 * @return \Sepa\CreditTransfer\PaymentInformation
+	 */
+	public function setCtgyPurp($ctgyPurp) {
+		$this->ctgyPurp = $ctgyPurp;
+		return $this;
+	}
     /**
      * 
      * @param array|Payment $payment
