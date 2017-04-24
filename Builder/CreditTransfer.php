@@ -104,7 +104,7 @@ class CreditTransfer extends Base {
             $creditTransferTransactionInformation->appendChild($amount);
 
 			if($payment->getCtgyPurp() != false){
-				$category = $this->createElement('CtgyPur');
+				$category = $this->createElement('CtgyPurp');
 				$categoryValue = $this->createElement('Cd', $payment->getCtgyPurp());
 				$category->appendChild($categoryValue);
 				$creditTransferTransactionInformation->appendChild($category);
