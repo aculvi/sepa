@@ -1,6 +1,6 @@
 <?php
 
-date_default_timezone_set('Europe/Amsterdam');
+date_default_timezone_set('Europe/Madrid');
 
 class CreditTransfer extends \PHPUnit_Framework_TestCase {
 
@@ -28,6 +28,7 @@ class CreditTransfer extends \PHPUnit_Framework_TestCase {
                 ->setCreditorBIC('ABNANL2A')
                 ->setCreditorIBAN('NL91ABNA0417164300')
                 ->setCreditorName('My Name')
+				->setCtgyPurp('SUPP')
                 ->setEndToEndId('askfjhwqkjthewqjktewrter')
                 ->setRemittanceInformation('Transaction testing');
 

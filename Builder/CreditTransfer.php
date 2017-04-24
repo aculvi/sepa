@@ -103,6 +103,13 @@ class CreditTransfer extends Base {
             $amount->appendChild($instructedAmount);
             $creditTransferTransactionInformation->appendChild($amount);
 
+			if($payment->getCtgyPurp() != false){
+				$category = $this->createElement('CtgyPur');
+				$categoryValue = $this->createElement('Cd', $payment->getCtgyPurp());
+				$category->appendChild($categoryValue);
+				$creditTransferTransactionInformation->appendChild($category);
+			}
+
             $creditorAgent = $this->createElement('CdtrAgt');
             $financialInstitution = $this->createElement('FinInstnId');
             $financialInstitution->appendChild($this->createElement('BIC', $payment->getCreditorBIC()));
